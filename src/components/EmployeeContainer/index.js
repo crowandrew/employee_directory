@@ -43,6 +43,12 @@ export default class EmployeeContainer extends Component {
         this.setState({
           employees: allEmployees,
           filteredEmployees: allEmployees,
+          sortId: 0,
+          sortName: 0,
+          sortPhone: 0,
+          sortEmail: 0,
+          sortDob: 0,
+          sortAge: 0,
         });
       })
       .catch((err) => console.log(err));
@@ -68,7 +74,6 @@ export default class EmployeeContainer extends Component {
 
   sortAscEmployees = (type) => {
     const field = type.slice(4).toLowerCase();
-    console.log("Asc", field);
     let sortedEmployees = this.state.filteredEmployees.sort((a, b) => {
       let comparison = 0;
       if (a[field] > b[field]) {
@@ -85,7 +90,6 @@ export default class EmployeeContainer extends Component {
 
   sortDescEmployees = (type) => {
     const field = type.slice(4).toLowerCase();
-    console.log("Asc", field);
     let sortedEmployees = this.state.filteredEmployees.sort((a, b) => {
       let comparison = 0;
       if (a[field] < b[field]) {
